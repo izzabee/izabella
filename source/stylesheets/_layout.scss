@@ -1,0 +1,112 @@
+// ======================================================================================================
+//
+// Page layout
+//
+// ======================================================================================================
+
+body {
+  background: $white;
+  color: $blue;
+  font-family: 'devinne_btroman', serif;
+  font-weight: 200;
+
+  *::selection {
+    background: $blue;
+    color: $white;
+  }
+}
+
+.page__wrapper {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  @include breakpoint(md) {
+    height: 100%;
+  }
+}
+
+// Right and left sections
+// ===================================
+
+.page__section {
+  align-items: stretch;
+  clip: rect(auto, auto, auto, auto);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: 50px;
+  width: 50%;
+
+  @include breakpoint(md) { padding-top: 100px; }
+  @include breakpoint(lg) { padding-top: 200px; }
+}
+
+.page__section--first-half {
+  background-color: $blue;
+  color: $white;
+
+  .project {
+    position: relative;
+    // top: 50%;
+    // transform: translateY(-50%);
+    width: 100%;
+  }
+}
+
+.page__section--second-half {
+  background-color: $white;
+  color: $blue;
+
+  .project { width: 45vw }
+}
+
+.page__section--overflow-txt {
+  span {
+    font-size: 2em;
+    position: fixed;
+    right: 0;
+  }
+}
+
+
+// Project layouts
+// ===================================
+
+.project {
+  clip: rect(auto, auto, auto, auto);
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+  z-index: 5;
+
+  a { font-size: 14px; }
+
+  @include breakpoint(md) {
+    padding: 30px;
+
+    a { font-size: 20px; }
+  }
+
+  @include breakpoint(lg) {
+    min-height: 800px;
+    a { font-size: 30px; }
+  }
+
+  img {
+    // max-width: 100%;
+    padding: 30px 0;
+    width: calc(100vw - 160px)
+  }
+}
+
+.project__name { margin-bottom: 0; }
+.project__date { margin: 0; }
+.project__build {}
+
+.project--more { margin-top: 50px; }

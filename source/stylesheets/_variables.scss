@@ -1,0 +1,58 @@
+//  ======================================================================================================
+//
+//  Variables
+//
+//  ======================================================================================================
+
+//  Responsive Breakpoints
+//  --------------------------------------------------
+    $break-xs:          350px  !default;
+    $break-sm:          580px  !default;
+    $break-md:          768px  !default;
+    $break-mdx:         980px  !default;
+    $break-lg:          1024px !default;
+    $break-xl:          1280px !default;
+    $break-xxl:         1400px !default;
+
+//  Colors
+//  --------------------------------------------------
+    $white:             #ffffff !default;
+    $blue:              #0042ce !default;
+    $dark-blue:         #568cb0 !default;
+
+    $transparent-white: rgba($white, 0.2) !default;
+    $transparent-blue:  rgba($blue, 0.9) !default;
+
+//  Default Color Settings
+//  --------------------------------------------------
+    // $primary-color:     $white        !default;
+    // $body-bg:           $light-gray   !default;
+    // $default-txt-color: $dark-gray    !default;
+    // $highlight:         $green        !default;
+
+// Link Colors
+//  --------------------------------------------------
+    $link-color:        $blue         !default;
+    // $link-hover-color:  $dark-gray    !default;
+
+//  Animation
+//  --------------------------------------------------
+    $default-animation:           all 0.3s !default;
+    $default-animation-duration:  0.3s !default;
+    $color-animation:             color 0.3s !default;
+    $opacity-animation:           opacity 0.3s !default;
+
+// Font Families
+//  --------------------------------------------------
+    $font-roman: 'devinne_btroman', Times, serif !default;
+
+// Font Defaults
+//  --------------------------------------------------
+    // $font-family-default: $font-condensed-light !default;
+    // $font-weight-default: 400                   !default;
+    // $font-size-base:
+    // $line-height-base:
+
+
+.type--white { color: #fff; }
+.type--blue  { color: $blue; }

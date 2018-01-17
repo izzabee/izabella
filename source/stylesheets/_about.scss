@@ -1,0 +1,50 @@
+// ======================================================================================================
+//
+// About Section
+//
+// ======================================================================================================
+
+.page--about {
+  background: $white;
+  clip: rect(auto, auto, auto, auto);
+  color: $blue;
+  font-size: 25px;
+  // height: calc(100vh - 20px);
+  min-height: calc(100vh - 200px);
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+
+  h2,
+  h3    { font-weight: normal; }
+  p     { margin: 0; }
+  p + p { margin: 0; }
+
+  a { font-size: 25px; }
+
+  @include breakpoint(md) {
+    font-size: 40px;
+    padding: 90px 30px 30px;
+
+    a { font-size: 30px; }
+  }
+
+  @include breakpoint(lg) {
+    a { font-size: 50px; }
+  }
+
+  .header {
+    left: 0;
+    top: 0;
+  }
+}
+
+.page--about__content {
+  padding-top: 200px;
+}
+
+.contact-info {
+  padding-top: 50px;
+  a { display: block; }
+}

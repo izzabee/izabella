@@ -1,0 +1,42 @@
+// ===================================
+//
+// Type styles
+//
+// ===================================
+
+a {
+  text-decoration: none;
+  transition: letter-spacing 0.8s;
+  color: $blue;
+
+  &:hover { letter-spacing: 0.05rem; }
+  &:visited { color: $blue; }
+}
+
+.type--small {
+  font-size: 14px !important;
+
+  @include breakpoint(md) { font-size: 20px !important; }
+  @include breakpoint(lg) { font-size: 30px !important; }
+}
+
+// Specific section overrides
+// ===================================
+
+.page--about {
+  h2, h3, p {
+    font-size: 25px;
+
+    @include breakpoint(md) { font-size: 40px; }
+    @include breakpoint(lg) { font-size: 50px; }
+  }
+}
+
+.project {
+  p {
+    font-size: 14px;
+
+    @include breakpoint(md) { font-size: 40px; }
+    @include breakpoint(lg) { font-size: 50px; }
+  }
+}
