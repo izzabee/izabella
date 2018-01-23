@@ -40,3 +40,9 @@ a {
     @include breakpoint(lg) { font-size: 50px; }
   }
 }
+
+.header-type {
+  font-size: 40px;
+  @include breakpoint(md) { font-size: 80px; }
+  @include breakpoint(lg)  { font-size: 160px; }
+}

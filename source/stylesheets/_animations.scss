@@ -8,13 +8,7 @@
   perspective: 1000px;
   transform-origin: 0px 0px 0px;
   // transition: width 0.8s cubic-bezier(0.64, 0.57, 0.67, 1.53);
-
-  &.is-stretched { width: 100%; }
-  &.is-small { width: 0%; }
 }
-
-
-.is-in-front { z-index: 10; }
 
 .page__section.hover-grow {
   transition: all 0.8s linear;

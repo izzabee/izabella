@@ -16,18 +16,39 @@ const calculateAngle = (x, y, width, height) => Math.atan2(x - (width / 2), -(y 
 createChildren = () => {
   els.$img   = $('.js-grow-section')
   els.$panel = $('.js-hover-grow')
-  els.$left  = $('.page__section--first-half')
-  els.$right = $('.page__section--second-half')
-  els.$lastName = $('.page__section--overflow-txt')
+  els.$close = $('.js-close')
+  els.$half  = $('.page__section--half')
+  els.$lastName = els.$close.children()
+  return
 }
 
 stretchPanel = (e) =>  {
-  els.$left.toggleClass('is-stretched')
-  els.$right.toggleClass('is-small')
+  let firstHalf  = e.currentTarget.parentElement
+  let secondHalf = firstHalf.nextSibling
 
-  setTimeout(() => {
-    els.$lastName.toggleClass('is-in-front')
-  }, 400)
+  firstHalf.classList.toggle('is-stretched')
+  secondHalf.classList.toggle('is-small')
+
+  setTimeout(lastNameInFront, 250)
+
+  return
+}
+
+shrinkPanel = (e) => {
+  let firstHalf  = els.$half.filter('.is-stretched')
+  let secondHalf = els.$half.filter('.is-small')
+
+  firstHalf.removeClass('is-stretched')
+  secondHalf.removeClass('is-small')
+
+  setTimeout(lastNameInFront, 250)
+
+  return
+}
+
+lastNameInFront = () => {
+  els.$close.toggleClass('is-in-front')
+  return
 }
 
 movePanel = (e) =>  {
@@ -50,7 +71,6 @@ movePanel = (e) =>  {
       0, 0, 1, 0,
       0, 0, 0, 1
     )`
-    //, backgroundImage: `linear-gradient(${angle}deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, ${opacity * 0.00035}))`,
   });
 }
 
@@ -62,23 +82,28 @@ leavePanel = (e) =>  {
       0, 0, 1, 0,
       0, 0, 0, 1
     )`
-    //, backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))`,
   });
+
+  return
 }
 
 enable = () => {
   if (opts.enabled) return
 
   els.$img.on('click', stretchPanel)
+  els.$close.on('click', shrinkPanel)
   els.$panel.on('mousemove', movePanel)
   els.$panel.on('mouseleave', leavePanel)
 
   opts.enabled = true
+  return
 }
 
 disable = () => {
   if (!opts.enabled) return
 
+  // els.$img.off('click', stretchPanel)
+  // els.$close.off('click', shrinkPanel)
   els.$panel.off('mousemove', movePanel)
   els.$panel.off('mouseleave', leavePanel)
 
