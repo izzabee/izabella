@@ -10,7 +10,7 @@
     $break-sm:          580px  !default;
     $break-md:          768px  !default;
     $break-mdx:         980px  !default;
-    $break-lg:          1024px !default;
+    $break-lg:          1025px !default;
     $break-xl:          1280px !default;
     $break-xxl:         1400px !default;
 
@@ -52,7 +52,3 @@
     // $font-weight-default: 400                   !default;
     // $font-size-base:
     // $line-height-base:
-
-
-.type--white { color: #fff; }
-.type--blue  { color: $blue; }

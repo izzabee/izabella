@@ -14,20 +14,30 @@ const scale = (n, min, max) => n * (max - min) + min;
 const calculateAngle = (x, y, width, height) => Math.atan2(x - (width / 2), -(y - (height / 2))) * (180 / Math.PI);
 
 createChildren = () => {
-  els.$img   = $('.js-grow-section')
-  els.$panel = $('.js-hover-grow')
-  els.$close = $('.js-close')
-  els.$half  = $('.page__section--half')
-  els.$lastName = els.$close.children()
+  els.$img       = $('.js-grow-section')
+  els.$panel     = $('.js-hover-grow')
+  els.$close     = $('.js-close')
+  els.$half      = $('.page__section--half')
+  els.$lastName  = els.$close.children()
+  els.$container = $('.project')
+  els.$prjList   = $('.js-project-list')
+
   return
 }
 
 stretchPanel = (e) =>  {
-  let firstHalf  = e.currentTarget.parentElement
+  let firstHalf  = e.currentTarget.parentElement.parentElement
   let secondHalf = firstHalf.nextSibling
+  let container  = firstHalf.parentElement
+
+  $('html, body').animate({
+    scrollTop: container.offsetTop
+  }, 200)
 
   firstHalf.classList.toggle('is-stretched')
   secondHalf.classList.toggle('is-small')
+
+  previewMode(container)
 
   setTimeout(lastNameInFront, 250)
 
@@ -41,8 +51,16 @@ shrinkPanel = (e) => {
   firstHalf.removeClass('is-stretched')
   secondHalf.removeClass('is-small')
 
+  previewMode(firstHalf.parentElement)
+
   setTimeout(lastNameInFront, 250)
 
+  return
+}
+
+previewMode = (container) => {
+  els.$prjList.toggleClass('preview-mode')
+  $(container).toggleClass('is-in-view')
   return
 }
 
@@ -90,8 +108,8 @@ leavePanel = (e) =>  {
 enable = () => {
   if (opts.enabled) return
 
-  els.$img.on('click', stretchPanel)
-  els.$close.on('click', shrinkPanel)
+  // els.$img.on('click', stretchPanel)
+  // els.$close.on('click', shrinkPanel)
   els.$panel.on('mousemove', movePanel)
   els.$panel.on('mouseleave', leavePanel)
 

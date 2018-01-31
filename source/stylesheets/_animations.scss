@@ -4,13 +4,15 @@
 //
 // ======================================================================================================
 
+.hover-grow,
 .page__section {
-  perspective: 1000px;
+  // perspective: 1000px;
   transform-origin: 0px 0px 0px;
   // transition: width 0.8s cubic-bezier(0.64, 0.57, 0.67, 1.53);
 }
 
-.page__section.hover-grow {
+.page--about .hover-grow,
+.page__section .hover-grow {
   transition: all 0.8s linear;
   transform-style: preserve-3d;
   transform: matrix3d(
@@ -20,3 +22,33 @@
     0,  0,  0,  1
   );
 }
+
+// TODO: this needs to be refined...
+.preview-mode {
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  .project:not(.is-in-view) {
+    height: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+
+// TODO: maybe will add this for mobile...
+// .page--projects {
+//   -webkit-overflow-scrolling: touch;
+//   overflow-x: hidden;
+//   overflow-y: auto;
+//   position: relative;
+//   scroll-behavior: smooth;
+//   scroll-snap-destination: 100vh 0;
+//   scroll-snap-points-y: repeat(100vh);
+//   scroll-snap-type: mandatory;
+// }

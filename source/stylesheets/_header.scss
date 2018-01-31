@@ -6,7 +6,7 @@
 
 header {
   clip: rect(auto, auto, auto, auto);
-  z-index: 2;
+  z-index: 9;
 }
 
 .header {
@@ -22,6 +22,13 @@ header {
   transition: all 0.8s;
   width: 100%;
 
+  h1 {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
   span {
     display: inline-block;
     text-align: center;
@@ -35,13 +42,6 @@ header {
   }
 
   @include breakpoint(lg) { font-size: 80px; }
-
-  h1 {
-    margin: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
 }
 
 .page--about {

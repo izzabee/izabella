@@ -3,6 +3,7 @@
 // Page layout
 //
 // ======================================================================================================
+html { background: $blue; }
 
 body {
   background: $white;
@@ -29,6 +30,19 @@ body {
   }
 }
 
+// This is to correct iOS line bug between projects
+.page--projects:after {
+  background-color: $blue;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 50%;
+}
+
 // Right and left sections
 // ===================================
 .page__section {
@@ -50,19 +64,17 @@ body {
     background-color: $blue;
     color: $white;
     overflow: hidden;
-    // width: 100vw;
   }
 
   &:last-of-type {
     background-color: $white;
     color: $blue;
     padding: 0;
-    // transform: translateX(-100%);
     width: 50vw;
   }
 
   &.is-stretched { width: 100vw; }
-  &.is-small { transform: translateX(0); }
+  // &.is-small { transform: translateX(0); }
 }
 
 
@@ -72,10 +84,11 @@ body {
   clip: rect(auto, auto, auto, auto);
   display: flex;
   flex-direction: row;
+  height: auto;
   min-height: 100vh;
   overflow: hidden;
-  position: relative;
   padding: 0;
+  position: relative;
   text-align: center;
   width: 100vw;
   z-index: 5;
@@ -90,13 +103,19 @@ body {
 
   @include breakpoint(md) {
     a { font-size: 20px; }
-
     img { padding: 200px 30px; }
   }
 
   @include breakpoint(lg) {
     min-height: 800px;
     a { font-size: 30px; }
+  }
+
+  @include breakpoint(xl) {
+    img {
+      padding: 200px 50px;
+      width: calc(100vw - 100px);
+    }
   }
 }
 
