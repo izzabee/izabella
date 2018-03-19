@@ -6,7 +6,7 @@
 html { background: $blue; }
 
 body {
-  background: $white;
+  background: #000;
   color: $blue;
   font-family: 'devinne_btroman', serif;
   font-weight: 200;
@@ -31,17 +31,9 @@ body {
 }
 
 // This is to correct iOS line bug between projects
-.page--projects:after {
-  background-color: $blue;
-  bottom: 0;
-  content: '';
-  display: block;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 50%;
-}
+.project,
+.project-list,
+.page--about { margin: -1px 0; }
 
 // Right and left sections
 // ===================================

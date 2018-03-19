@@ -21,10 +21,19 @@ createChildren = () => {
   els.$lastName  = els.$close.children()
   els.$container = $('.project')
   els.$prjList   = $('.js-project-list')
+  els.$container = $('.js-fade-in')
+  els.$loader    = $('.js-load-in')
 
   return
 }
 
+slideInPanels = () => {
+  els.$loader.addClass('is-complete').on('transitionend', () => {
+    els.$loader.addClass('fade-out')
+  })
+
+  return
+}
 stretchPanel = (e) =>  {
   let firstHalf  = e.currentTarget.parentElement.parentElement
   let secondHalf = firstHalf.nextSibling
@@ -112,6 +121,7 @@ enable = () => {
   // els.$close.on('click', shrinkPanel)
   els.$panel.on('mousemove', movePanel)
   els.$panel.on('mouseleave', leavePanel)
+  setTimeout(slideInPanels, 500)
 
   opts.enabled = true
   return
