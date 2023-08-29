@@ -145,6 +145,11 @@ body {
   }
 }
 
+.project__build {
+  max-width: 800px;
+  margin: 1em auto;
+}
+
 .project__name { margin-bottom: 0; }
 .project__date { margin: 0; }
 .project--more { margin-top: 50px; }
